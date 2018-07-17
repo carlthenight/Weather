@@ -14,6 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
 
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=a5795bb543a04094d7d35316c16699dd&plugin=AMap.CitySearch"></script>
+
     <!-- Own CSS -->
     <link rel="stylesheet" href="css/weather-web.css" >
 
@@ -386,10 +388,6 @@
     </div>
     <div class="container" style="margin-bottom: 35px">
         <div id="tq-7-days">
-            <a id="link-15" href="http://www.weather.com.cn/weather15d/101200101.shtml"
-               data-boss="swryb" target="_blank">
-                15日天气预报
-            </a>
             <h2 id="title">
                 7日天气预报
             </h2>
@@ -622,104 +620,6 @@
     <script type="text/javascript" src="js/actionJS.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
 <script type="text/javascript" >
-
-    var myChart = echarts.init(document.getElementById('chart-days'));
-    // 指定图表的配置项和数据
-    var option = {
-        backgroundColor: "rgba(0,0,0,0.0)",
-        color: ["#FCC370", "#94CCF9"],
-        animation: !1,
-        tooltip: {
-            show: !1
-        },
-        xAxis: {
-            type: "category",
-            show: false,
-            data:  ['','','','','','','',''],
-            boundaryGap: ["45%", "45%"],
-            scale: !0
-        },
-        yAxis: {
-            type: 'value',
-            show: false,
-        },
-        grid: {
-            left:0,
-            top:40,
-            height: 174,
-            width: 1200,
-            borderWidth: "0px"
-        },
-        series: [{
-            data:  [41, 44, 43, 41, 40, 41, 42, 41],
-            type: 'line',
-            smooth: true,
-            symbol: "circle",
-            symbolSize: 8,
-            clipOverflow: !1,
-            lineStyle: {
-                normal: {
-                    width: 3
-                }
-            },
-            label: {
-                normal: {
-                    show: !0,
-                    textStyle: {
-                        fontSize: "18",
-                        color: "#384C78"
-
-                    },
-                    distance: 10,
-                    formatter: function(t) {
-                        return 0 == t.dataIndex ? "{first|" + t.data + "\xb0}" : t.data + "\xb0"
-                    },
-                    rich: {
-                        first: {
-                            fontSize: "18",
-                            color: "#C2C2C2"
-                        }
-                    }
-                }
-            }
-        },
-
-            {
-                data: [29, 32, 30, 29, 28, 30, 31,30],
-                type: 'line',
-                smooth: true,
-                symbol: "circle",
-                symbolSize: 8,
-                lineStyle: {
-                    normal: {
-                        width: 3
-                    }
-                },
-                label: {
-                    normal: {
-                        show: !0,
-                        position: "bottom",
-                        textStyle: {
-                            fontSize: "18",
-                            fontFamily: "\u5fae\u8f6f\u96c5\u9ed1",
-                            color: "#555555"
-                        },
-                        distance: 10,
-                        formatter: function(t) {
-                            return 0 == t.dataIndex ? "{first|" + t.data + "\xb0}" : t.data + "\xb0"
-                        },
-                        rich: {
-                            first: {
-                                fontSize: "18",
-                                fontFamily: "\u5fae\u8f6f\u96c5\u9ed1",
-                                color: "#C2C2C2"
-                            }
-                        }
-                    }
-                }
-            }]
-    };
-    myChart.setOption(option);
 </script>
 </body>
 </html>

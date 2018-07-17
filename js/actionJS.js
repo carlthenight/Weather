@@ -20,8 +20,7 @@ var timeend;
 //jQuery Ready()
 $(document).ready(function () {
 
-    console.log($("#tq-weather").width());
-
+    showCityInfo();
     //按时的天气翻页
     $("#btn-next").click(function () {
         if ($("#tq-weather").css("margin-left") == "" || $("#tq-weather").css("margin-left") == "0px") {
@@ -82,6 +81,7 @@ $(document).ready(function () {
         //获取分时天气
         getDivisionWeather(_cityName)
         //获取七天天气
+        getServenDayWeather(_cityName);
         $("#tq-hot-city").css("display", "none");
         $("#ls-match").css("display", "none").empty();
     });
@@ -119,6 +119,7 @@ function getWeatherMain(_cityName) {
     $.ajax({
         url:"http://localhost:8080/weather/getByName?cityName="+ _cityName,
         success:function (result) {
+            console.log("WeatherMain AJAX:" + _cityName);
             result = JSON.parse(result);
             //console.log(result.data.weatherMain.degree);
             mainInit(result,_cityName);
@@ -156,16 +157,15 @@ function getDivisionWeather(_cityName) {
 //获取七天天气预报
 function getServenDayWeather(_cityName) {
     $.ajax({
-        url:"http://localhost:8080/weather/getDivisionWeather?cityName="+ _cityName,
+        url:"http://localhost:8080/weather/getSevenDays?cityName="+ _cityName,
         success:function (result) {
-            console.log("DivisionWeather AJAX:" + _cityName);
+            console.log("SevenDaysWeather AJAX:" + _cityName);
             result = JSON.parse(result);
             console.log(result);
-            divisionWeatherInit(result, _cityName);
+            sevenDayWeatherInit(result, _cityName);
         }
     });
 }
-
 
 /***********/
 /**ajax结束**/
@@ -226,7 +226,7 @@ function aqiInit(_data,_cityName) {
 
 }
 //分时天气初始化
-function divisionWeatherInit(_data) {
+function divisionWeatherInit(_data,_cityName) {
 
     var info = _data.data.divisionWeather;
 
@@ -251,14 +251,134 @@ function divisionWeatherInit(_data) {
 }
 
 //七天天气初始化
-function sevenDayWeatherInit(_data) {
+function sevenDayWeatherInit(_data,_cityName) {
 
-    patainEchart()
+    //获取数据
+    var info = _data.data.sevenDaysWeather;
+
+    console.log(info);
+
+    //获取七天天气根节点
+    var sevenDaysRoot = $("#ls-weather-day");
+
+    sevenDaysRoot.empty();
+
+    var hight = new Array();
+    var low = new Array();
+    for(var i=0;i<info.length;i++){
+        var item;
+        if(i==0){
+            item ="item first";
+        }else if(i==1){
+            item ="item second";
+        }else{
+            item ="item";
+        }
+
+        var weather_day  = info[i].weather_day;
+        var weather_night = info[i].weather_night;
+        var weather_src_day = "./img/day/" + imgPicker(weather_day) + ".png";
+        var weather_src_night = "./img/night/" + imgPicker(weather_night) + ".png"
+
+        var date = info[i].date;
+        var date_name = getDateName(date);
+        console.log("返回"+ date_name);
+
+        var wind_info = info[i].wind_direction + " " + info[i].wind_power + "级";
+        hight[i]= info[i].temperature_High;
+        low[i] = info[i].temperature_Low;
+        sevenDaysRoot.append("<li class=\""+ item +"\"><p class=\"day\">"+ date_name +"</p><p class=\"date\">07月"+ date + "日</p><div class=\"tq-daytime\"><p class=\"weather\">"+ weather_day +"</p><img class=\"icon\" src=\""+ weather_src_day + "\"alt=\"" + weather_day + "\" title=\"" + weather_day + "\"></div><div class=\"tq-night\"><img class=\"icon\" src=\"" + weather_src_night + "\" alt=\""+ weather_night + "\" title=\""+ weather_night +"\"><p class=\"weather\">" + weather_night+ "</p></div><p class=\"wind\">" + wind_info + "</p></li>"
+        );
+    }
+    //把高低分开放到echarData中.
+
+    var echartData = new Array();
+    echartData[0] =  hight;
+    echartData[1] =  low;
+    patainEchart(echartData);
+    console.log("SevenDaysWeatherInitDone");
+}
+
+function FirstInit(_cityName) {
+
+    _cityName = _cityName.substr(0,_cityName.length-1)
+
+    console.log(_cityName);
+    getWeatherMain(_cityName);
+    //获取天气质量
+    getAqi(_cityName);
+    //获取分时天气
+    getDivisionWeather(_cityName)
+    //获取七天天气
+    getServenDayWeather(_cityName);
+
+}
+
+function showCityInfo() {
+    //实例化城市查询类
+    var citysearch = new AMap.CitySearch();
+    //自动获取用户IP，返回当前城市
+    citysearch.getLocalCity(function(status, result) {
+        if (status === 'complete' && result.info === 'OK') {
+            if (result && result.city && result.bounds) {
+                var cityinfo = result.city;
+                console.log(cityinfo);
+                FirstInit(cityinfo);
+            }
+        } else {
+            console.log(result.info);
+        }
+    });
 }
 
 /***********/
 /**init模块结束**/
 
+//返回日期
+function getDateName(_date) {
+    var dayName = ["昨天","今天","明天"];
+    var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+    //昨天的日期
+    var day1 = new Date();
+    day1.setDate(day1.getDate() - 1);
+    var yesterday = day1.getDate();
+    //今天的日期
+    var day2 = new Date();
+    var today = day2.getDate();
+    //明天的日期
+    var day3 = new Date();
+    day3.setDate(day3.getDate() + 1);
+    var tomorrow = day3.getDate();
+    //将_data装入 Date();
+    var day4 = new Date();
+    day4.setDate(_date);
+    var defaultDate = day4.getDay();
+
+    console.log("昨天"+typeof(yesterday)+"今天"+typeof(today)+"明天"+typeof(tomorrow)+"defaDate"+typeof(defaultDate)+"传入:"+typeof(_date));
+
+    console.log("-昨天:"+yesterday+"-今天:"+today+"-明天:"+tomorrow+"-defaDate:"+defaultDate+"-传入:"+_date);
+
+    _date = parseInt(_date);
+
+    switch (_date){
+        case yesterday :
+            return dayName[0];
+        break;
+
+        case today :
+            return dayName[1];
+        break;
+
+        case tomorrow :
+            return dayName[2];
+        break;
+
+        default :
+            return weekday[defaultDate];
+        break;
+    }
+}
 
 //返回图片标志;
 function imgPicker(_weather) {
@@ -326,28 +446,28 @@ function imgPicker(_weather) {
         case "沙尘暴" :
             return "20";
             break;
-        case "小雨-中雨" :
+        case "小到中雨" :
             return "21";
             break;
-        case "中雨-大雨" :
+        case "中到大雨" :
             return "22";
             break;
-        case "大雨-暴雨" :
+        case "大到暴雨" :
             return "23";
             break;
-        case "暴雨-大暴雨" :
+        case "暴到大暴雨" :
             return "24";
             break;
-        case "大暴雨-特大暴雨" :
+        case "大暴到特大暴雨" :
             return "25";
             break;
-        case "小雪-中雪" :
+        case "小到中雪" :
             return "26";
             break;
-        case "中雪-大雪" :
+        case "中到大雪" :
             return "27";
             break;
-        case "大雪-暴雪" :
+        case "大到暴雪" :
             return "28";
             break;
         case "浮尘" :
@@ -402,7 +522,7 @@ function patainEchart(_data) {
             borderWidth: "0px"
         },
         series: [{
-            data:  [41, 44, 43, 41, 40, 41, 42, 41],
+            data:  _data[0],
             type: 'line',
             smooth: true,
             symbol: "circle",
@@ -436,7 +556,7 @@ function patainEchart(_data) {
         },
 
             {
-                data: [29, 32, 30, 29, 28, 30, 31,30],
+                data: _data[1],
                 type: 'line',
                 smooth: true,
                 symbol: "circle",
