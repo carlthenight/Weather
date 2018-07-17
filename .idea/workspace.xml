@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e740862-c04e-4e01-828a-f8079cede7d8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/actionJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/actionJS.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="621" column="32" selection-start-line="621" selection-start-column="32" selection-end-line="621" selection-end-column="32" />
+            <state relative-caret-position="120">
+              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
               <folding>
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -47,20 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actionJS.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="actionJS.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/actionJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="167" column="1" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weather-web.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/weather-web.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12420">
-              <caret line="690" column="19" selection-start-line="690" selection-start-column="19" selection-end-line="690" selection-end-column="19" />
+            <state relative-caret-position="342">
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -125,6 +114,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="carl &lt;719095750@qq.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -192,7 +186,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/WeatherWeb" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="F:/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -239,12 +233,22 @@
       <workItem from="1531786700623" duration="1358000" />
       <workItem from="1531789765277" duration="145000" />
       <workItem from="1531795584753" duration="1055000" />
-      <workItem from="1531797928999" duration="7518000" />
+      <workItem from="1531797928999" duration="7641000" />
+      <workItem from="1531810489839" duration="747000" />
+      <workItem from="1531811306304" duration="45000" />
     </task>
+    <task id="LOCAL-00001" summary="All done!">
+      <created>1531808084699</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1531808084699</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117105000" />
+    <option name="totallyTimeSpent" value="118020000" />
   </component>
   <component name="TodoView">
     <todo-panel id="all">
@@ -259,7 +263,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4983871" visible="true" weight="0.19704953" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32900432" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.14951245" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.5016129" side_tool="true" weight="0.24973656" />
@@ -280,6 +284,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="All done!" />
+    <option name="LAST_COMMIT_MESSAGE" value="All done!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/htmlTest.css">
@@ -784,15 +792,22 @@
     <entry file="file://$USER_HOME$/Desktop/index.html" />
     <entry file="file://$PROJECT_DIR$/css/weather-web.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12420">
+        <state relative-caret-position="18">
           <caret line="690" column="19" selection-start-line="690" selection-start-column="19" selection-end-line="690" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/actionJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="621" column="32" selection-start-line="621" selection-start-column="32" selection-end-line="621" selection-end-column="32" />
+        <state relative-caret-position="120">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#a#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -809,13 +824,6 @@
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/actionJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="167" column="1" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
         </state>
       </provider>
     </entry>

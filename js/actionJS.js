@@ -15,8 +15,7 @@
          document.getElementById("tq-weather").style.marginLeft="0px";
      }
  }*/
-var timestart;
-var timeend;
+var apiAddress = "http://weatherapi.toshare.top";
 //jQuery Ready()
 $(document).ready(function () {
 
@@ -67,13 +66,12 @@ $(document).ready(function () {
                 $("#ls-match").css("display", "none").empty();
                 $("#tq-hot-city").css("display", "block");
             }
-         }, 1000);
+        }, 1000);
     });
 
     //绑定搜索栏地点点击事件
     $("#tq-search").on("click","li,#cur-location",function(){
-        _cityName = $(this).attr("data-city")
-        timestart =  new Date().getTime()
+        _cityName = $(this).attr("data-city");
         //获取主模块天气信息
         getWeatherMain(_cityName);
         //获取天气质量
@@ -96,17 +94,17 @@ $(document).ready(function () {
 //搜索栏通过名字寻找城市
 function searchByName(cityName){
     $.ajax({
-        url:"http://localhost:8080/city/searchCity?cityName="+cityName,
+        url:apiAddress +"/city/searchCity?cityName="+cityName,
         success:function (result) {
             $("#ls-match").css("display", "block");
             $("#tq-hot-city").css("display", "none");
-            console.log(result);
+            //console.log(result);
             result = JSON.parse(result);
             var info=null;
             if (typeof(result) != "undefined" && result!="{\"data\":[]}") {
                 for(var i=0;i<result.data.length;i++) {
                     info = result.data;
-                    console.log("this is searchByName ajax:" +info[i].cityName);
+                    //console.log("this is searchByName ajax:" +info[i].cityName);
                     $("#ls-match").append("<li class=\"item\" data-city=\""+ info[i].cityName + "\">" + info[i].cityName + "</li>")
                 }
             }
@@ -117,9 +115,9 @@ function searchByName(cityName){
 //获取主模块天气信息
 function getWeatherMain(_cityName) {
     $.ajax({
-        url:"http://localhost:8080/weather/getByName?cityName="+ _cityName,
+        url:apiAddress +"/weather/getByName?cityName="+ _cityName,
         success:function (result) {
-            console.log("WeatherMain AJAX:" + _cityName);
+            //console.log("WeatherMain AJAX:" + _cityName);
             result = JSON.parse(result);
             //console.log(result.data.weatherMain.degree);
             mainInit(result,_cityName);
@@ -131,9 +129,9 @@ function getWeatherMain(_cityName) {
 //获取天气质量
 function  getAqi(_cityName) {
     $.ajax({
-        url:"http://localhost:8080/weather/getAqi?cityName="+ _cityName,
+        url:apiAddress +"/weather/getAqi?cityName="+ _cityName,
         success:function (result) {
-            console.log("aqi AJAX:" + _cityName);
+            //console.log("aqi AJAX:" + _cityName);
             result = JSON.parse(result);
             //console.log(result.data.weatherMain.degree);
             aqiInit(result,_cityName);
@@ -144,11 +142,11 @@ function  getAqi(_cityName) {
 //获取分时天气预报
 function getDivisionWeather(_cityName) {
     $.ajax({
-        url:"http://localhost:8080/weather/getDivisionWeather?cityName="+ _cityName,
+        url:apiAddress +"/weather/getDivisionWeather?cityName="+ _cityName,
         success:function (result) {
-            console.log("DivisionWeather AJAX:" + _cityName);
+            //console.log("DivisionWeather AJAX:" + _cityName);
             result = JSON.parse(result);
-            console.log(result);
+            //console.log(result);
             divisionWeatherInit(result, _cityName);
         }
     });
@@ -157,11 +155,11 @@ function getDivisionWeather(_cityName) {
 //获取七天天气预报
 function getServenDayWeather(_cityName) {
     $.ajax({
-        url:"http://localhost:8080/weather/getSevenDays?cityName="+ _cityName,
+        url:apiAddress +"/weather/getSevenDays?cityName="+ _cityName,
         success:function (result) {
-            console.log("SevenDaysWeather AJAX:" + _cityName);
+            //console.log("SevenDaysWeather AJAX:" + _cityName);
             result = JSON.parse(result);
-            console.log(result);
+            //console.log(result);
             sevenDayWeatherInit(result, _cityName);
         }
     });
@@ -175,6 +173,7 @@ function getServenDayWeather(_cityName) {
 //主模块数据初始化
 function mainInit(_data,_cityName) {
     $("#txt-cur-location,#cur-location").text(_cityName);
+    $("#cur-location").attr("data-city",_cityName);
 
     //取出值
     var info = _data.data.weatherMain;
@@ -196,12 +195,12 @@ function mainInit(_data,_cityName) {
     $("#txt-humidity").text("湿度  " + txt_humidity + "%");
     $("#tq-current-weather img").attr("src",current_weather_src);
 
-    console.log("MaininitDone");
+    console.log("MainInitDone");
 }
 
 //天气质量初始化
 function aqiInit(_data,_cityName) {
-    console.log("get into the AqiInit and cityName = "  + _cityName );
+    //console.log("get into the AqiInit and cityName = "  + _cityName );
 
     //取出值
     var info = _data.data.aqi;
@@ -221,9 +220,7 @@ function aqiInit(_data,_cityName) {
     $("#tb-detail").empty().append(
         "<table id=\"tb-detail\"><tbody><tr class=\"line1\"><td><p class=\"val\">"+ pm2 +"</p><p class=\"titl\">PM2.5</p></td><td class=\"nth-2\"><p class=\"val\">" + pm10 +"</p><p class=\"titl\">PM10</p></td><td><p class=\"val\">" + so2 +"</p><p class=\"titl\">SO2</p></td></tr><tr><td><p class=\"val\">" + no2 + "</p><p class=\"titl\">NO2</p></td><td class=\"nth-2\"></td><td><p class=\"val\">" + co +"</p><p class=\"titl\">CO</p></td></tr></tbody></table>"
     );
-
     console.log("aqiInitDone");
-
 }
 //分时天气初始化
 function divisionWeatherInit(_data,_cityName) {
@@ -243,11 +240,7 @@ function divisionWeatherInit(_data,_cityName) {
         divisionWindowRoot.append("<li class=\"item\"><p class=\"txt-time\">" + info[i].weather_time.substr(3,2) + ":00</p><img src=\""+ current_weather_src +"\" alt=\""+ weather +"\" title=\"" + weather + "\" class=\"icon\"><p class=\"txt-degree\">" + info[i].temperature + "°</p></li>"
         );
     }
-
-    timeend = new Date().getTime();
     console.log("DivisionWeatherInitDone");
-    var timeuse = timeend-timestart;
-    console.log("loading time is:"+ timeuse);
 }
 
 //七天天气初始化
@@ -256,7 +249,7 @@ function sevenDayWeatherInit(_data,_cityName) {
     //获取数据
     var info = _data.data.sevenDaysWeather;
 
-    console.log(info);
+    //console.log(info);
 
     //获取七天天气根节点
     var sevenDaysRoot = $("#ls-weather-day");
@@ -282,7 +275,6 @@ function sevenDayWeatherInit(_data,_cityName) {
 
         var date = info[i].date;
         var date_name = getDateName(date);
-        console.log("返回"+ date_name);
 
         var wind_info = info[i].wind_direction + " " + info[i].wind_power + "级";
         hight[i]= info[i].temperature_High;
@@ -298,12 +290,13 @@ function sevenDayWeatherInit(_data,_cityName) {
     patainEchart(echartData);
     console.log("SevenDaysWeatherInitDone");
 }
-
+//初次加载
 function FirstInit(_cityName) {
 
     _cityName = _cityName.substr(0,_cityName.length-1)
 
     console.log(_cityName);
+
     getWeatherMain(_cityName);
     //获取天气质量
     getAqi(_cityName);
@@ -311,6 +304,7 @@ function FirstInit(_cityName) {
     getDivisionWeather(_cityName)
     //获取七天天气
     getServenDayWeather(_cityName);
+
 
 }
 
@@ -355,28 +349,24 @@ function getDateName(_date) {
     day4.setDate(_date);
     var defaultDate = day4.getDay();
 
-    console.log("昨天"+typeof(yesterday)+"今天"+typeof(today)+"明天"+typeof(tomorrow)+"defaDate"+typeof(defaultDate)+"传入:"+typeof(_date));
-
-    console.log("-昨天:"+yesterday+"-今天:"+today+"-明天:"+tomorrow+"-defaDate:"+defaultDate+"-传入:"+_date);
-
     _date = parseInt(_date);
 
     switch (_date){
         case yesterday :
             return dayName[0];
-        break;
+            break;
 
         case today :
             return dayName[1];
-        break;
+            break;
 
         case tomorrow :
             return dayName[2];
-        break;
+            break;
 
         default :
             return weekday[defaultDate];
-        break;
+            break;
     }
 }
 
@@ -593,4 +583,3 @@ function patainEchart(_data) {
     //绘制
     myChart.setOption(option);
 }
-
