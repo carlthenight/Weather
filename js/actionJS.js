@@ -234,24 +234,24 @@ function divisionWeatherInit(_data,_cityName) {
 
     divisionWindowRoot.empty();
 
-    var timeCount="";
+    var timeCount=null;
     var dayCount=0;
     var dayName=["明天","后天"];
     for(var i=0;i<info.length;i++){
         //判断天气图片类型
         //图片地址:  ./img/day/02.png
+        console.log(timeCount);
         var weather = info[i].weather;
         var current_weather_src = "./img/day/" + imgPicker(weather) + ".png";
         var time = info[i].weather_time.substr(3,2);
-        if(time < timeCount){
+        if(time < timeCount && dayCount <2){
             time = dayName[dayCount];
+            console.log("time = "+time  );
             dayCount++;
-            if(dayCount>2){
-                time = info[i].weather_time.substr(3,2)+":00";
-            }
         }else{
             time+=":00";
         }
+        console.log("time = "+time  );
         timeCount = info[i].weather_time.substr(3,2);
         divisionWindowRoot.append("<li class=\"item\"><p class=\"txt-time\">" + time + "</p><img src=\""+ current_weather_src +"\" alt=\""+ weather +"\" title=\"" + weather + "\" class=\"icon\"><p class=\"txt-degree\">" + info[i].temperature + "°</p></li>"
         );
