@@ -15,6 +15,9 @@
          document.getElementById("tq-weather").style.marginLeft="0px";
      }
  }*/
+///
+//var apiAddress = "http://localhost:8080";
+
 var apiAddress = "http://weatherapi.toshare.top";
 //jQuery Ready()
 $(document).ready(function () {
