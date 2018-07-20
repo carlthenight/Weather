@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5e740862-c04e-4e01-828a-f8079cede7d8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/actionJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/actionJS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,23 +20,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="430" column="28" lean-forward="true" selection-start-line="430" selection-start-column="28" selection-end-line="430" selection-end-column="28" />
+            <state relative-caret-position="443">
+              <caret line="617" column="6" lean-forward="true" selection-start-line="617" selection-start-column="6" selection-end-line="617" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actionJS.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="actionJS.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/actionJS.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -44,7 +41,7 @@
       <file leaf-file-name="weather-web.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/weather-web.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
+            <state relative-caret-position="17241">
               <caret line="821" column="1" selection-start-line="821" selection-start-column="1" selection-end-line="821" selection-end-column="1" />
             </state>
           </provider>
@@ -126,9 +123,9 @@
         <option value="$PROJECT_DIR$/js/main-webOnLoad.js" />
         <option value="$PROJECT_DIR$/js/main-webDoActions.js" />
         <option value="$USER_HOME$/Desktop/index.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/weather-web.css" />
         <option value="$PROJECT_DIR$/js/actionJS.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -155,7 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,6 +173,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,7 +233,8 @@
       <workItem from="1531877784282" duration="406000" />
       <workItem from="1531880369731" duration="66000" />
       <workItem from="1532050485551" duration="1426000" />
-      <workItem from="1532069187648" duration="662000" />
+      <workItem from="1532069187648" duration="734000" />
+      <workItem from="1532069991913" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="All done!">
       <created>1531808084699</created>
@@ -280,11 +278,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532051807558</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="优化显示搜索不存在的城市.">
+      <created>1532069901561</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532069901562</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121906000" />
+    <option name="totallyTimeSpent" value="121988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="all">
@@ -327,7 +332,8 @@
     <MESSAGE value="update README.md" />
     <MESSAGE value="fix bug.修复分时时间显示" />
     <MESSAGE value="fix bug.修复Aqi返回多值" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug.修复Aqi返回多值" />
+    <MESSAGE value="优化显示搜索不存在的城市." />
+    <option name="LAST_COMMIT_MESSAGE" value="优化显示搜索不存在的城市." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/htmlTest.css">
@@ -654,16 +660,9 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/index.html" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="430" column="28" lean-forward="true" selection-start-line="430" selection-start-column="28" selection-end-line="430" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/weather-web.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
+        <state relative-caret-position="17241">
           <caret line="821" column="1" selection-start-line="821" selection-start-column="1" selection-end-line="821" selection-end-column="1" />
         </state>
       </provider>
@@ -671,10 +670,14 @@
     <entry file="file://$PROJECT_DIR$/js/actionJS.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="617" column="6" lean-forward="true" selection-start-line="617" selection-start-column="6" selection-end-line="617" selection-end-column="6" />
         </state>
       </provider>
     </entry>
