@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5e740862-c04e-4e01-828a-f8079cede7d8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/weather-web.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/weather-web.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/actionJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/actionJS.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,17 +23,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="427" column="44" lean-forward="true" selection-start-line="427" selection-start-column="44" selection-end-line="427" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weather-web.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/weather-web.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="821" column="1" selection-start-line="821" selection-start-column="1" selection-end-line="821" selection-end-column="1" />
+            <state relative-caret-position="84">
+              <caret line="430" column="28" lean-forward="true" selection-start-line="430" selection-start-column="28" selection-end-line="430" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -42,8 +32,20 @@
       <file leaf-file-name="actionJS.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/actionJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="336">
+              <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weather-web.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/weather-web.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="628">
+              <caret line="821" column="1" selection-start-line="821" selection-start-column="1" selection-end-line="821" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -61,7 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>list-style</find>
       <find>tq-hours</find>
       <find>tq-weather</find>
       <find>#ct-h</find>
@@ -91,6 +92,7 @@
       <find>opts</find>
       <find>ls-city</find>
       <find>i-location</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>.</replace>
@@ -233,7 +235,8 @@
       <workItem from="1531874244639" duration="1326000" />
       <workItem from="1531877784282" duration="406000" />
       <workItem from="1531880369731" duration="66000" />
-      <workItem from="1532050485551" duration="1287000" />
+      <workItem from="1532050485551" duration="1426000" />
+      <workItem from="1532069187648" duration="662000" />
     </task>
     <task id="LOCAL-00001" summary="All done!">
       <created>1531808084699</created>
@@ -270,11 +273,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531878172349</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix bug.修复Aqi返回多值">
+      <created>1532051807558</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532051807558</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121105000" />
+    <option name="totallyTimeSpent" value="121906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="all">
@@ -316,7 +326,8 @@
     <MESSAGE value="fix a bug,修复分时日期问题." />
     <MESSAGE value="update README.md" />
     <MESSAGE value="fix bug.修复分时时间显示" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug.修复分时时间显示" />
+    <MESSAGE value="fix bug.修复Aqi返回多值" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug.修复Aqi返回多值" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/htmlTest.css">
@@ -645,22 +656,25 @@
     <entry file="file://$USER_HOME$/Desktop/index.html" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="427" column="44" lean-forward="true" selection-start-line="427" selection-start-column="44" selection-end-line="427" selection-end-column="44" />
+        <state relative-caret-position="84">
+          <caret line="430" column="28" lean-forward="true" selection-start-line="430" selection-start-column="28" selection-end-line="430" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/weather-web.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
+        <state relative-caret-position="628">
           <caret line="821" column="1" selection-start-line="821" selection-start-column="1" selection-end-line="821" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/actionJS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="336">
+          <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

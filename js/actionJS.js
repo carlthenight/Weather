@@ -103,13 +103,17 @@ function searchByName(cityName){
             $("#tq-hot-city").css("display", "none");
             //console.log(result);
             result = JSON.parse(result);
-            var info=null;
-            if (typeof(result) != "undefined" && result!="{\"data\":[]}") {
+            var info=result.data;
+            if (typeof(info) != "undefined" && info.length!=0) {
+                console.log("get the cityName");
+
                 for(var i=0;i<result.data.length;i++) {
-                    info = result.data;
                     //console.log("this is searchByName ajax:" +info[i].cityName);
-                    $("#ls-match").append("<li class=\"item\" data-city=\""+ info[i].cityName + "\">" + info[i].cityName + "</li>")
+                    $("#ls-match").append("<li class=\"item\" data-city=\""+ info[i].cityName + "\">" + info[i].cityName + "</li>");
                 }
+            }else{
+                console.log("didn't get the cityName");
+                $("#ls-match").append("<li class=\"item\" style=\"pointer-events:none;\">暂无此城市</li>");
             }
         }
     });
@@ -229,7 +233,7 @@ function aqiInit(_data,_cityName) {
 //分时天气初始化
 function divisionWeatherInit(_data,_cityName) {
 
-    console.log(_data);
+    //console.log(_data);
 
     var info = _data.data.divisionWeather;
 
@@ -243,18 +247,18 @@ function divisionWeatherInit(_data,_cityName) {
     for(var i=0;i<info.length;i++){
         //判断天气图片类型
         //图片地址:  ./img/day/02.png
-        console.log(timeCount);
+        //console.log(timeCount);
         var weather = info[i].weather;
         var current_weather_src = "./img/day/" + imgPicker(weather) + ".png";
         var time = info[i].weather_time.substr(3,2);
         if(time < timeCount && dayCount <2){
             time = dayName[dayCount];
-            console.log("time = "+time  );
+            //console.log("time = "+time  );
             dayCount++;
         }else{
             time+=":00";
         }
-        console.log("time = "+time  );
+        //console.log("time = "+time  );
         timeCount = info[i].weather_time.substr(3,2);
         divisionWindowRoot.append("<li class=\"item\"><p class=\"txt-time\">" + time + "</p><img src=\""+ current_weather_src +"\" alt=\""+ weather +"\" title=\"" + weather + "\" class=\"icon\"><p class=\"txt-degree\">" + info[i].temperature + "°</p></li>"
         );
